@@ -1,0 +1,11 @@
+{
+  "scripts": {
+    "koa": "node src/koa-server.js"
+  },
+  "dependencies": {
+    "graphql": "^14.0.0",
+    "graphql-tools": "^6.0.15",
+    "koa": "^2.13.0",
+    "koa-graphql": "^0.8.0"
+  }
+}

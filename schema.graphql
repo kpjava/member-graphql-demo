@@ -1,0 +1,66 @@
+type Query {
+    singleMemberSearch(firstName: String!, lastName: String!, dateOfBirth: Date!): MemberSubscription
+    family(contractId: ID!): [Member]
+}
+
+"""
+ISO 8601 String representing a date.
+"""
+scalar Date
+
+type Person {
+    personId: ID
+    firstName: String
+    lastName: String
+    suffix: String
+    title: String
+    dateOfBirth: Date
+    SSN: String
+}
+
+enum CoverageType {
+    DF
+}
+
+type Coverage {
+    effectiveDate: Date!
+    endDate: Date!
+    groupLevel3: String
+    groupLevel4: String
+    coverageType: CoverageType
+    rateCode: Int
+    termReasonCode: String
+}
+
+type Subscription {
+    subscriberId: ID!
+    subscriberAltId: ID
+    contractId: ID!
+    coverages: [Coverage]
+}
+
+enum Role {
+    SUBSCRIBER
+    SPOUSE
+    CHILD
+}
+
+type Identifiers {
+    caseId: ID
+    memberClass: String
+    exchangePlanId: String
+    groupReceiverId: String
+    exchangeGroupId: String
+}
+
+type Member {
+    memberId: ID
+    person: Person
+    identifiers: Identifiers
+}
+
+type MemberSubscription {
+    member: Member!
+    subscription: Subscription!
+    role: Role
+}
