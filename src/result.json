@@ -1,0 +1,551 @@
+{
+  "subscriptions": [
+    {
+      "Comments": "First Member/Family",
+      "coverages": [
+        {
+          "groupLevel1": "groupid1",
+          "groupLevel2": "divisionid1",
+          "groupLevel3": "",
+          "groupLevel4": "",
+          "effectiveDate": "20190101",
+          "endDate": "20191231",
+          "contractId": "CONTRACTID1",
+          "coverageType": "DF",
+          "rateCode": "3",
+          "termReasonCode": "2END"
+        },
+        {
+          "groupLevel1": "groupid2",
+          "groupLevel2": "divisionid1",
+          "groupLevel3": "",
+          "groupLevel4": "",
+          "effectiveDate": "20200101",
+          "endDate": "99991231",
+          "contractId": "CONTRACTID2",
+          "coverageType": "",
+          "rateCode": "",
+          "termReasonCode": ""
+        }
+      ],
+      "members": [
+        {
+          "subscriberMember": {
+            "relationshipCode": "10",
+            "relationship": "Subscriber",
+            "firstName": "",
+            "lastName": "",
+            "suffix": "",
+            "title": "",
+            "dateOfBirth": "",
+            "information": "",
+            "spokenLanguage": "",
+            "writtenLanguage": "",
+            "ethinicity": "",
+            "race": "",
+            "identifiers": [
+              {
+                "name": "SSN",
+                "value": "xxxxxxxxxxx",
+                "effectiveDate": "20200101",
+                "endDate": "99991231"
+              },
+              {
+                "name": "SUBSCRIBERID",
+                "value": "SUBSCRIBERID1",
+                "effectiveDate": "20200101",
+                "endDate": "99991231"
+              },
+              {
+                "name": "SUBSCRIBERID",
+                "value": "SUBSCRIBERID1.1",
+                "effectiveDate": "20190101",
+                "endDate": "2O191231"
+              },
+              {
+                "name": "ASN",
+                "value": "SUBSCRIBERALTID1",
+                "effectiveDate": "20200101",
+                "endDate": "99991231"
+              },
+              {
+                "NAME": "PERSONID",
+                "value": "123457890001",
+                "effectiveDate": "20200101",
+                "endDate": "99991231"
+              }
+            ],
+            "addressses": [
+              {
+                "addressType": "Mail",
+                "addressLine1": "",
+                "addressLine2": "",
+                "addressLine3": "",
+                "city": "",
+                "county": "",
+                "state": "",
+                "zipcode": "",
+                "country": ""
+              },
+              {
+                "addressType": "Residence",
+                "addressLine1": "",
+                "addressLine2": "",
+                "addressLine3": "",
+                "city": "",
+                "county": "",
+                "state": "",
+                "zipcode": "",
+                "country": ""
+              }
+            ],
+            "eligibilities": [
+              {
+                "effectiveDate": "20190101",
+                "endDate": "20191231",
+                "termReasonCode": "",
+                "waitingPeriod": "N",
+                "actionCode": "",
+                "memberShipId": "CONTRACTID101",
+                "benefitPackageId": "DCA0101",
+                "BL4": "GROUP",
+                "BL5": "DDC",
+                "BL6": "CA",
+                "BL7": "PPO"
+              },
+              {
+                "effectiveDate": "20200101",
+                "endDate": "99991231",
+                "termReasonCode": "",
+                "waitingPeriod": "N",
+                "actionCode": "",
+                "memberShipId": "CONTRACTID201",
+                "benefitPackageId": "",
+                "BL4": "",
+                "BL5": "",
+                "BL6": "",
+                "BL7": ""
+              }
+            ],
+            "providers": [
+              {
+                "providerID": "DC12345",
+                "primaryFlag": "Y",
+                "effectiveDate": "20190101",
+                "endDate": "99991231",
+                "termReason": "2END",
+                "networkID": "PPO",
+                "providerContractId": "",
+                "providerQualifierId": "",
+                "taxId": "",
+                "npiid": ""
+              }
+            ],
+            "contact": {
+              "contactNumbers": [
+                {
+                  "type": "Home",
+                  "phoneNumber": "",
+                  "extension": "",
+                  "primary": ""
+                },
+                {
+                  "type": "Work",
+                  "phoneNumber": "",
+                  "extension": "",
+                  "primary": ""
+                },
+                {
+                  "type": "Cell",
+                  "phoneNumber": "",
+                  "extension": "",
+                  "primary": ""
+                }
+              ],
+              "email": [
+                {
+                  "type": "Personal",
+                  "email": "",
+                  "primary": ""
+                },
+                {
+                  "type": "Work",
+                  "email": "",
+                  "primary": ""
+                }
+              ]
+            },
+            "account": [],
+            "aptc": [],
+            "broker": [],
+            "employerReference": [
+              {
+                "effectiveDate": "20200101",
+                "endDate": "20201231",
+                "hireDate": "20200101",
+                "employerReferenceId": "",
+                "occupation": "",
+                "employmentStatus": ""
+              }
+            ]
+          },
+          "dependentMembers": [
+            {
+              "relationshipCode": "20",
+              "relationship": "Spouse",
+              "firstName": "",
+              "lastName": "",
+              "suffix": "",
+              "title": "",
+              "dateOfBirth": "",
+              "information": "",
+              "spokenLanguage": "",
+              "writtenLanguage": "",
+              "ethinicity": "",
+              "race": "",
+              "identifiers": [
+                {
+                  "name": "SSN",
+                  "value": "xxxxxxxxxxx",
+                  "effectiveDate": "20200101",
+                  "endDate": "99991231"
+                },
+                {
+                  "name": "SUBSCRIBERID",
+                  "value": "SUBSCRIBERID1",
+                  "effectiveDate": "20200101",
+                  "endDate": "99991231"
+                },
+                {
+                  "name": "SUBSCRIBERID",
+                  "value": "SUBSCRIBERID1.1",
+                  "effectiveDate": "20190101",
+                  "endDate": "2O191231"
+                },
+                {
+                  "name": "ASN",
+                  "value": "SUBSCRIBERALTID1",
+                  "effectiveDate": "20200101",
+                  "endDate": "99991231"
+                },
+                {
+                  "NAME": "PERSONID",
+                  "value": "1234578900002",
+                  "effectiveDate": "20200101",
+                  "endDate": "99991231"
+                }
+              ],
+              "addressses": [
+                {
+                  "addressType": "Mail",
+                  "addressLine1": "",
+                  "addressLine2": "",
+                  "addressLine3": "",
+                  "city": "",
+                  "county": "",
+                  "state": "",
+                  "zipcode": "",
+                  "country": ""
+                },
+                {
+                  "addressType": "Residence",
+                  "addressLine1": "",
+                  "addressLine2": "",
+                  "addressLine3": "",
+                  "city": "",
+                  "county": "",
+                  "state": "",
+                  "zipcode": "",
+                  "country": ""
+                }
+              ],
+              "eligibilities": [
+                {
+                  "effectiveDate": "20190101",
+                  "endDate": "20191231",
+                  "termReasonCode": "",
+                  "waitingPeriod": "N",
+                  "actionCode": "",
+                  "memberShipId": "CONTRACTID102",
+                  "benefitPackageId": "",
+                  "BL4": "",
+                  "BL5": "",
+                  "BL6": "",
+                  "BL7": ""
+                },
+                {
+                  "effectiveDate": "20200101",
+                  "endDate": "99991231",
+                  "termReasonCode": "",
+                  "waitingPeriod": "N",
+                  "actionCode": "",
+                  "memberShipId": "CONTRACTID202",
+                  "benefitPackageId": "",
+                  "BL4": "",
+                  "BL5": "",
+                  "BL6": "",
+                  "BL7": ""
+                }
+              ],
+              "providers": [
+                {
+                  "providerID": "DC12345",
+                  "primaryFlag": "Y",
+                  "effectiveDate": "20190101",
+                  "endDate": "99991231",
+                  "termReason": "2END",
+                  "networkID": "DELTACARE",
+                  "providerContractId": "",
+                  "providerQualifierId": "",
+                  "taxId": "",
+                  "npiid": ""
+                }
+              ],
+              "contact": {
+                "contactNumbers": [
+                  {
+                    "type": "Home",
+                    "phoneNumber": "",
+                    "extension": "",
+                    "primary": ""
+                  },
+                  {
+                    "type": "Work",
+                    "phoneNumber": "",
+                    "extension": "",
+                    "primary": ""
+                  },
+                  {
+                    "type": "Cell",
+                    "phoneNumber": "",
+                    "extension": "",
+                    "primary": ""
+                  }
+                ],
+                "email": [
+                  {
+                    "type": "Personal",
+                    "email": "",
+                    "primary": ""
+                  },
+                  {
+                    "type": "Work",
+                    "email": "",
+                    "primary": ""
+                  }
+                ]
+              },
+              "account": [],
+              "aptc": [],
+              "broker": [],
+              "employerReference": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Comments": "Second Member/Second Family/Multiple Match",
+      "coverages": [
+        {
+          "groupLevel1": "groupid1",
+          "groupLevel2": "divisionid1",
+          "groupLevel3": "",
+          "groupLevel4": "",
+          "effectiveDate": "20190101",
+          "endDate": "20191231",
+          "contractId": "SCONTRACTID1",
+          "coverageType": "DF",
+          "rateCode": "3",
+          "termReasonCode": "2END"
+        },
+        {
+          "groupLevel1": "groupid2",
+          "groupLevel2": "divisionid1",
+          "groupLevel3": "",
+          "groupLevel4": "",
+          "effectiveDate": "20201201",
+          "endDate": "99991231",
+          "contractId": "SCONTRACTID2",
+          "coverageType": "",
+          "rateCode": "",
+          "termReasonCode": ""
+        }
+      ],
+      "members": [
+        {
+          "subscriberMember": {
+            "relationshipCode": "10",
+            "relationship": "Subscriber",
+            "firstName": "",
+            "lastName": "",
+            "suffix": "",
+            "title": "",
+            "dateOfBirth": "",
+            "information": "",
+            "spokenLanguage": "",
+            "writtenLanguage": "",
+            "ethinicity": "",
+            "race": "",
+            "identifiers": [
+              {
+                "name": "SSN",
+                "value": "xxxxxxxxxxx",
+                "effectiveDate": "20200101",
+                "endDate": "99991231"
+              },
+              {
+                "name": "SUBSCRIBERID",
+                "value": "SUBSCRIBERID2",
+                "effectiveDate": "20200101",
+                "endDate": "99991231"
+              },
+              {
+                "name": "SUBSCRIBERID",
+                "value": "SUBSCRIBERID2.1",
+                "effectiveDate": "20190101",
+                "endDate": "2O191231"
+              },
+              {
+                "name": "ASN",
+                "value": "SUBSCRIBERALTID1",
+                "effectiveDate": "20200101",
+                "endDate": "99991231"
+              },
+              {
+                "NAME": "PERSONID",
+                "value": "1234578900003",
+                "effectiveDate": "20200101",
+                "endDate": "99991231"
+              }
+            ],
+            "addressses": [
+              {
+                "addressType": "Mail",
+                "addressLine1": "",
+                "addressLine2": "",
+                "addressLine3": "",
+                "city": "",
+                "county": "",
+                "state": "",
+                "zipcode": "",
+                "country": ""
+              },
+              {
+                "addressType": "Residence",
+                "addressLine1": "",
+                "addressLine2": "",
+                "addressLine3": "",
+                "city": "",
+                "county": "",
+                "state": "",
+                "zipcode": "",
+                "country": ""
+              }
+            ],
+            "eligibilities": [
+              {
+                "effectiveDate": "20190101",
+                "endDate": "20191231",
+                "memberShipId": "SCONTRACTID101",
+                "benefitPackageId": "",
+                "actionCode": "",
+                "BL4": "",
+                "BL5": "",
+                "BL6": "",
+                "BL7": ""
+              },
+              {
+                "effectiveDate": "20200101",
+                "endDate": "99991231",
+                "memberShipId": "SCONTRACTID201",
+                "benefitPackageId": "",
+                "actionCode": "",
+                "BL4": "",
+                "BL5": "",
+                "BL6": "",
+                "BL7": ""
+              }
+            ],
+            "providers": [
+              {
+                "providerID": "DC12345",
+                "primaryFlag": "Y",
+                "effectiveDate": "20190101",
+                "endDate": "20191231",
+                "termReason": "2END",
+                "networkID": "DELTACARE",
+                "providerContractId": "",
+                "providerQualifierId": "",
+                "taxId": "",
+                "npiid": ""
+              },
+              {
+                "providerID": "DC12346",
+                "primaryFlag": "Y",
+                "effectiveDate": "20200101",
+                "endDate": "99991231",
+                "termReason": "",
+                "networkID": "DELTACARE",
+                "providerContractId": "",
+                "providerQualifierId": "",
+                "taxId": "",
+                "npiid": ""
+              }
+            ],
+            "contact": {
+              "contactNumbers": [
+                {
+                  "type": "Home",
+                  "phoneNumber": "",
+                  "extension": "",
+                  "primary": ""
+                },
+                {
+                  "type": "Work",
+                  "phoneNumber": "",
+                  "extension": "",
+                  "primary": ""
+                },
+                {
+                  "type": "Cell",
+                  "phoneNumber": "",
+                  "extension": "",
+                  "primary": ""
+                }
+              ],
+              "email": [
+                {
+                  "type": "Personal",
+                  "email": "",
+                  "primary": ""
+                },
+                {
+                  "type": "Work",
+                  "email": "",
+                  "primary": ""
+                }
+              ]
+            },
+            "account": [],
+            "aptc": [],
+            "broker": [],
+            "employerReference": [
+              {
+                "effectiveDate": "20200101",
+                "endDate": "20201231",
+                "hireDate": "20200101",
+                "employerReferenceId": "",
+                "occupation": "",
+                "employmentStatus": ""
+              }
+            ]
+          },
+          "dependentMembers": [
+            {}
+          ]
+        }
+      ]
+    }
+  ]
+}

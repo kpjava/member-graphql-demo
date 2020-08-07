@@ -1,22 +1,15 @@
 type Query {
-    singleMemberSearch(firstName: String!, lastName: String!, dateOfBirth: Date!): MemberSubscription
-    family(contractId: ID!): [Member]
+    # member(memberID: ID!): MemberSubscription
+    memberFamily(contractId: ID, memberId: ID): FamilySubscription
+    memberSearch(firstName: String!, lastName: String!, dateOfBirth: Date!, networkId: ID!): [MemberSubscription]
+    # memberSearchWithSSN(dateOfBirth: Date!, ssn: String!, networkId: ID!): MemberSubscription
+    # memberSearchWithMemberId(dateOfBirth: Date!, memberId: ID!, networkId: ID!): MemberSubscription
 }
 
 """
 ISO 8601 String representing a date.
 """
 scalar Date
-
-type Person {
-    personId: ID
-    firstName: String
-    lastName: String
-    suffix: String
-    title: String
-    dateOfBirth: Date
-    SSN: String
-}
 
 enum CoverageType {
     DF
@@ -32,35 +25,37 @@ type Coverage {
     termReasonCode: String
 }
 
-type Subscription {
-    subscriberId: ID!
-    subscriberAltId: ID
-    contractId: ID!
-    coverages: [Coverage]
-}
-
 enum Role {
     SUBSCRIBER
     SPOUSE
     CHILD
 }
 
-type Identifiers {
-    caseId: ID
-    memberClass: String
-    exchangePlanId: String
-    groupReceiverId: String
-    exchangeGroupId: String
+type Identifier {
+    name: String!
+    value: String!
+    effectiveDate: Date!
+    endDate: Date!
 }
 
 type Member {
-    memberId: ID
-    person: Person
-    identifiers: Identifiers
+    memberId: ID!
+    identifiers(name: String!): [Identifier!]!
+    role: Role!
+    firstName: String
+    lastName: String
+    suffix: String
+    title: String
+    dateOfBirth: Date
+}
+
+type FamilySubscription {
+    subscriber: Member!
+    dependents: [Member]
+    coverages: [Coverage!]!
 }
 
 type MemberSubscription {
     member: Member!
-    subscription: Subscription!
-    role: Role
+    coverages: [Coverage!]!
 }

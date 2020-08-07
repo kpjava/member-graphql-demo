@@ -8,130 +8,109 @@ const app = new Koa();
 
 const schema = buildSchema(fs.readFileSync('schema.graphql', 'utf-8'));
 
-const people = [
-  {
-    personId: '---1---',
-    firstName: 'John',
-    lastName: 'Doe',
-    suffix: undefined,
-    title: undefined,
-    dateOfBirth: '2001-01-01',
-    SSN: 'xxx-xx-xxxx',
-  },
-  {
-    personId: '---2---',
-    firstName: 'Jane',
-    lastName: 'Doe',
-    suffix: undefined,
-    title: undefined,
-    dateOfBirth: '2002-02-02',
-    SSN: 'xxx-xx-xxxx',
-  }
-]
 const coverages = [
   {
+    contractId: 'cid-000001',
     effectiveDate: '2020-01-01',
     endDate: '9999-12-31',
   },
   {
+    contractId: 'cid-000002',
     effectiveDate: '2020-02-01',
     endDate: '9999-12-31',
   }
 ];
 
-const subscriptions = [
+const identifiers = [
   {
-    contractId: '000001',
-    subscriberId: '0000000001',
-    subscriberAltId: 'N/A',
-    coverages: [coverages[0], coverages[1]],
+    name: 'PERSONID',
+    value: 'personID-1'
   },
   {
-    contractId: '000001',
-    subscriberId: '0000000001',
-    subscriberAltId: 'N/A',
-    coverages: [coverages[0], coverages[1]],
+    name: 'SSN',
+    value: 'xxx-xx-xxx1',
+  },
+  {
+    name: 'PERSONID',
+    value: 'personID-2'
+  },
+  {
+    name: 'SSN',
+    value: 'xxx-xx-xxx2',
   }
-]
+];
+
+function identifiersWithFilter(identifiers) {
+  return ({name}) => {
+    return identifiers.filter(i => i.name === name);
+  }
+}
 
 const members = [
   {
     memberId: '01',
-    identifiers: {
-      caseId: 'case1',
-      memberClass: 'mc',
-      exchangePlanId: '',
-      groupReceiverId: '',
-      exchangeGroupId: ''
-    },
-    person: people[0],
+    identifiers: identifiersWithFilter([identifiers[0], identifiers[1]]),
+    firstName: 'John',
+    lastName: 'Doe',
+    suffix: undefined,
+    title: undefined,
+    dateOfBirth: '2001-01-01',
+    role: 'SUBSCRIBER'
   },
   {
     memberId: '02',
-    identifiers: {
-      caseId: 'case1',
-      memberClass: 'mc',
-      exchangePlanId: '',
-      groupReceiverId: '',
-      exchangeGroupId: ''
-    },
-    person: people[1],
+    identifiers: identifiersWithFilter([identifiers[2], identifiers[3]]),
+    firstName: 'Jane',
+    lastName: 'Doe',
+    suffix: undefined,
+    title: undefined,
+    dateOfBirth: '2002-02-02',
+    role: 'SPOUSE'
   }
 ];
 
 const memberSubscriptions = [
   {
-    subscription: subscriptions[0],
     member: members[0],
-    role: 'SUBSCRIBER'
+    coverages: [coverages[0], coverages[1]],
   },
   {
-    subscription: subscriptions[1],
     member: members[1],
-    role: 'SPOUSE'
-  }
+    coverages: [coverages[0], coverages[1]],
+  },
+]
+
+const familySubscriptions = [
+  {
+    subscriber: members[0],
+    dependents: [members[1]],
+    coverages: [coverages[0], coverages[1]],
+  },
 ]
 
 const rootValue = {
-  family: ({contractId}) => {
-    const result = [];
-    for (ms of memberSubscriptions) {
-      if (ms.subscription.contractId === contractId) {
-        result.push(ms.member);
+  memberFamily: ({contractId, memberId}) => {
+    for (let fs of familySubscriptions) {
+      if (contractId && fs.coverages.some(c => c.contractId === contractId)) {
+        return fs;
+      }
+      else if (memberId) {
+        if (fs.subscriber.memberId === memberId)
+          return fs;
+        if (fs.dependents.some(m => m.memberId === memberId))
+          return fs;
       }
     }
-    return result;
   },
-  singleMemberSearch: ({firstName, lastName, dateOfBirth}) => {
-    for (ms of memberSubscriptions) {
-      if (ms.member.person.firstName !== firstName) continue;
-      if (ms.member.person.lastName !== lastName) continue;
-      if (ms.member.person.dateOfBirth !== dateOfBirth) continue;
-      return ms;
+  memberSearch: ({firstName, lastName, dateOfBirth, networkId}) => {
+    const results = [];
+    for (let ms of memberSubscriptions) {
+      if (ms.member.firstName !== firstName) continue;
+      if (ms.member.lastName !== lastName) continue;
+      if (ms.member.dateOfBirth !== dateOfBirth) continue;
+      results.push(ms);
     }
-  },
-
-  memberSearchByEnrolleeId: ({firstName, lastName, dateOfBirth, enrolleeId}) => {
-    const subscriberId = enrolleeId.slice(0, 10);
-    const subscriber = subscribers
-      .filter(s => s.subscriberId === subscriberId || s.member.person.SSN === enrolleeId)
-      .pop();
-    if (subscriber) {
-      for (dependent of subscriber.dependents) {
-        if (firstName && dependent.person.firstName !== firstName) continue;
-        if (lastName && dependent.person.lastName !== lastName) continue;
-        if (dependent.person.dateOfBirth !== dateOfBirth) continue;
-        return dependent;
-      }
-      if (firstName && subscriber.member.person.firstName !== firstName) return;
-      if (lastName && subscriber.member.person.lastName !== lastName) return;
-      if (subscriber.member.person.dateOfBirth !== dateOfBirth) return;
-      return subscriber.member;
-    }
-  },
-
-  subscriber: ({subscriberId}) => {
-    return subscribers.filter(s => s.subscriberId === subscriberId);
+    return results;
   }
 };
 

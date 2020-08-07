@@ -1,0 +1,50 @@
+Use Cases:
+    1) PEX Search (fn, ln, dob)
+    2) PEX Search (dob, memberId)
+    3) PEX Search (dob, SSN)
+Future Use Case:
+    4) Find family...
+
+GraphQL Query:
+  memberSearch(firstName: "John", ...) {
+      firstName
+      lastName
+      identifiers(name: "SubscriberId") {
+          effectiveDate
+          endDate
+      }
+      coverages {
+          effectiveDate
+          endDate
+          contractId
+      }
+  }
+  memberFamily(memberID: "00000001") {
+      firstName
+      lastName
+  }
+
+  Data Query:
+    select * from member
+       join person on person.id = member.person_id
+       where person.firstName=firstName
+         and ssn = ssn
+         and memberID = memberId
+         and networkID = networkID
+ 
+  Data Query Result:
+     members: [
+         {
+             firstName
+             lastName
+             identifiers: [],
+             coverages: [],
+             
+         }
+     ]
+
+GraphQL Response:
+    Copy Data result to graphQL response...
+    members: [
+
+    ]
